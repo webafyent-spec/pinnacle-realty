@@ -1,0 +1,1012 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Pinnacle Realty — Where the Ocean Meets Opportunity | Umhlanga, Durban">
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18" style="height:72px;">
+
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-3 flex-shrink-0">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="18,4 32,28 4,28" fill="none" stroke="#1B6CA8" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="18,10 27,26 9,26" fill="#D6EAF8"/>
+        <line x1="18" y1="4" x2="18" y2="28" stroke="#1B6CA8" stroke-width="1.5"/>
+      </svg>
+      <div class="leading-tight">
+        <div style="font-family:'DM Serif Display',serif;font-size:18px;font-weight:700;color:#1B6CA8;letter-spacing:0.03em;">PINNACLE</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.18em;color:#1A2332;text-transform:uppercase;">REALTY</div>
+      </div>
+    </a>
+
+    <!-- Nav Links — Desktop -->
+    <nav class="hidden lg:flex items-center gap-8">
+      {['Buy','Rent','Commercial','About','Contact'].map(link => (
+        <a
+          href={`#${link.toLowerCase()}`}
+          class="font-body text-sm font-medium text-charcoal hover:text-ocean transition-colors duration-200"
+          style="font-family:'DM Sans',sans-serif;color:#1A2332;font-size:14px;font-weight:500;"
+          onmouseover="this.style.color='#1B6CA8'"
+          onmouseout="this.style.color='#1A2332'"
+        >{link}</a>
+      ))}
+    </nav>
+
+    <!-- Right side -->
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="tel:0315660800" style="font-family:'DM Sans',sans-serif;font-size:13px;color:#1B6CA8;font-weight:600;">031 566 0800</a>
+      <a
+        href="#contact"
+        style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;background:#1B6CA8;color:#fff;padding:10px 20px;border-radius:9999px;letter-spacing:0.03em;white-space:nowrap;transition:background 0.2s ease;"
+        onmouseover="this.style.background='#2E8BC0'"
+        onmouseout="this.style.background='#1B6CA8'"
+      >LIST YOUR PROPERTY</a>
+    </div>
+
+    <!-- Hamburger — Mobile -->
+    <button id="menu-toggle" class="lg:hidden p-2" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true">
+  <button id="menu-close" class="absolute top-6 right-6 p-2" aria-label="Close menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="2" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  {['Home','Buy','Rent','Commercial','About','Contact'].map(link => (
+    <a
+      href={`#${link.toLowerCase()}`}
+      class="mobile-nav-link"
+      style="font-family:'DM Serif Display',serif;font-size:32px;color:#1A2332;"
+      onmouseover="this.style.color='#1B6CA8'"
+      onmouseout="this.style.color='#1A2332'"
+    >{link}</a>
+  ))}
+  <a href="tel:0315660800" style="font-family:'DM Sans',sans-serif;font-size:16px;color:#1B6CA8;font-weight:600;margin-top:16px;">031 566 0800</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — HERO
+════════════════════════════════════════════ -->
+<section id="home" class="hero-split flex" style="min-height:100vh;padding-top:72px;">
+
+  <!-- Left: Content -->
+  <div class="hero-left flex flex-col justify-center" style="width:50%;padding:60px 56px 60px 64px;">
+
+    <!-- Badge -->
+    <div class="fade-up" style="margin-bottom:28px;">
+      <span style="display:inline-flex;align-items:center;gap:8px;background:#EEF4FB;border:1px solid #D6EAF8;color:#1B6CA8;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:8px 18px;border-radius:9999px;letter-spacing:0.02em;">
+        🌊 Umhlanga's #1 Property Agency
+      </span>
+    </div>
+
+    <!-- H1 -->
+    <h1 class="fade-up delay-100 hero-h1" style="font-family:'DM Serif Display',serif;font-size:clamp(52px,5.5vw,80px);line-height:1.05;color:#1A2332;margin-bottom:24px;">
+      Find Your<br/>
+      Perfect<br/>
+      <span style="color:#1B6CA8;font-style:italic;">Coastal</span> Home.
+    </h1>
+
+    <!-- Subheading -->
+    <p class="fade-up delay-200" style="font-family:'DM Sans',sans-serif;font-size:18px;color:#6B7C93;line-height:1.65;max-width:460px;margin-bottom:36px;">
+      Premium residential and commercial properties across Umhlanga, La Lucia, Ballito and the KZN North Coast.
+    </p>
+
+    <!-- Search Bar -->
+    <div class="fade-up delay-300" style="background:#fff;border:1.5px solid #1B6CA8;border-radius:14px;box-shadow:0 8px 40px rgba(27,108,168,0.12);overflow:hidden;margin-bottom:28px;">
+      <div class="search-bar-grid flex" style="min-height:60px;">
+        <select class="search-input flex-1" style="border:none;padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;background:transparent;cursor:pointer;border-right:1px solid #CBD5E1;" aria-label="Location">
+          <option value="">📍 Location</option>
+          <option>Umhlanga Ridge</option>
+          <option>Umhlanga Rocks</option>
+          <option>La Lucia</option>
+          <option>Ballito</option>
+          <option>Salt Rock</option>
+          <option>Sheffield Beach</option>
+        </select>
+        <select class="search-input flex-1" style="border:none;padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;background:transparent;cursor:pointer;border-right:1px solid #CBD5E1;" aria-label="Property type">
+          <option value="">🏠 Property Type</option>
+          <option>House</option>
+          <option>Apartment</option>
+          <option>Penthouse</option>
+          <option>Commercial</option>
+          <option>Land</option>
+        </select>
+        <select class="search-input flex-1" style="border:none;padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;background:transparent;cursor:pointer;border-right:1px solid #CBD5E1;" aria-label="Price range">
+          <option value="">💰 Price Range</option>
+          <option>Under R2M</option>
+          <option>R2M — R5M</option>
+          <option>R5M — R10M</option>
+          <option>R10M — R20M</option>
+          <option>R20M+</option>
+        </select>
+        <button
+          style="background:#1B6CA8;color:#fff;padding:16px 28px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s ease;"
+          onmouseover="this.style.background='#2E8BC0'"
+          onmouseout="this.style.background='#1B6CA8'"
+          aria-label="Search properties"
+        >SEARCH</button>
+      </div>
+    </div>
+
+    <!-- Stat Pills -->
+    <div class="fade-up delay-400 flex flex-wrap gap-3">
+      {[
+        {val:'240+', label:'Active Listings'},
+        {val:'R2.4B+', label:'Sold'},
+        {val:'15 Years', label:'in KZN'},
+      ].map(s => (
+        <div style="display:flex;align-items:center;gap:10px;background:#F7F9FC;border:1px solid #CBD5E1;border-radius:9999px;padding:10px 20px;">
+          <span style="font-family:'DM Serif Display',serif;font-size:16px;font-weight:700;color:#1B6CA8;">{s.val}</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Right: Image + Thumbnail cards -->
+  <div class="hero-right relative" style="width:50%;position:relative;overflow:hidden;">
+    <!-- Main image placeholder -->
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1B6CA8 0%,#2E8BC0 40%,#D6EAF8 100%);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 16px;opacity:0.4;">
+          <rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/>
+          <circle cx="22" cy="22" r="5" fill="white" opacity="0.6"/>
+          <path d="M8 32 L20 20 L30 30 L40 22 L56 36" stroke="white" stroke-width="2" fill="none"/>
+        </svg>
+        <p style="font-family:'DM Serif Display',serif;font-size:22px;font-style:italic;color:rgba(255,255,255,0.7);">[Beachfront Property Photo]</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);margin-top:8px;letter-spacing:0.08em;">UMHLANGA, KWAZULU-NATAL</p>
+      </div>
+    </div>
+
+    <!-- Subtle wave overlay -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,rgba(214,234,248,0.3),transparent);pointer-events:none;"></div>
+
+    <!-- Thumbnail cards stacked on the left edge -->
+    <div style="position:absolute;left:-120px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:10;">
+      {[
+        {price:'R4.2M', loc:'Umhlanga Ridge', idx:0},
+        {price:'R12.5M', loc:'La Lucia Beachfront', idx:1},
+        {price:'R8.9M', loc:'Umhlanga Rocks', idx:2},
+      ].map(t => (
+        <div
+          class={`thumb-card fade-up delay-${(t.idx+3)*100}`}
+          style="width:220px;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(27,108,168,0.18);overflow:hidden;display:flex;align-items:stretch;"
+        >
+          <div style="width:56px;background:linear-gradient(135deg,#1A2332,#2E8BC0);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="white" stroke-width="1.5"/><path d="M6 16V11h6v5" stroke="white" stroke-width="1.5"/><path d="M1 7l8-5 8 5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div style="padding:10px 14px;">
+            <div style="font-family:'DM Serif Display',serif;font-size:14px;font-weight:700;color:#1B6CA8;">{t.price}</div>
+            <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:#6B7C93;margin-top:2px;">📍 {t.loc}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — PROPERTY SEARCH BAR
+════════════════════════════════════════════ -->
+<section style="background:#1B6CA8;padding:48px 24px;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <h3 class="fade-up" style="font-family:'DM Serif Display',serif;font-size:clamp(24px,3vw,36px);font-style:italic;color:#fff;margin-bottom:28px;">
+      850+ Properties Across the KZN Coast
+    </h3>
+    <div class="fade-up delay-100 flex flex-wrap justify-center gap-3">
+      <button class="filter-pill active" data-filter="all">All Properties</button>
+      <button class="filter-pill" data-filter="sale">For Sale</button>
+      <button class="filter-pill" data-filter="let">To Let</button>
+      <button class="filter-pill" data-filter="commercial">Commercial</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — FEATURED LISTINGS
+════════════════════════════════════════════ -->
+<section id="buy" style="background:#ffffff;padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <!-- Header -->
+    <div class="fade-up text-center" style="margin-bottom:64px;">
+      <span class="section-label">FEATURED LISTINGS</span>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(36px,4vw,56px);color:#1A2332;margin:16px 0 0;line-height:1.1;">
+        Handpicked Properties
+      </h2>
+      <span class="gold-line"></span>
+      <p style="font-family:'DM Sans',sans-serif;font-size:17px;color:#6B7C93;margin-top:20px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65;">
+        Our agents personally curate every listing on Pinnacle Realty.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;" class="listings-grid">
+
+      <!-- Card 1 -->
+      <article class="prop-card fade-up" style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(27,108,168,0.08);overflow:hidden;border:1px solid #f0f4f8;">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <div class="card-img" style="height:100%;background:linear-gradient(135deg,#1B6CA8 0%,#2E8BC0 50%,#5BA3CC 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.7);">[Property Photo]</span>
+          </div>
+          <span style="position:absolute;top:16px;left:16px;background:#1B6CA8;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:9999px;">FOR SALE</span>
+          <button class="heart-icon" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);border:none;border-radius:9999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;" aria-label="Save property">♡</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:700;color:#1B6CA8;margin-bottom:6px;">R4,200,000</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1A2332;margin-bottom:6px;">The Umhlanga Ridge Penthouse</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;margin-bottom:16px;">📍 Umhlanga Ridge, Durban</div>
+          <div style="display:flex;gap:0;border-top:1px solid #EEF4FB;padding-top:14px;margin-bottom:14px;">
+            {[['🛏','3 Beds'],['🚿','2 Baths'],['📐','210m²'],['🚗','2']].map((f,i) => (
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;flex:1;text-align:center;border-right:i<3?'1px solid #CBD5E1':'none';">
+                {f[0]} {f[1]}
+              </span>
+            ))}
+          </div>
+          <div style="border-top:1px solid #EEF4FB;padding-top:14px;display:flex;align-items:center;justify-content:space-between;">
+            <a href="#" class="view-link" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1B6CA8;text-decoration:none;">View Property →</a>
+            <div style="width:32px;height:32px;border-radius:9999px;background:linear-gradient(135deg,#1B6CA8,#2E8BC0);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:12px;color:#fff;">TK</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="prop-card fade-up delay-100" style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(27,108,168,0.08);overflow:hidden;border:1px solid #f0f4f8;">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <div class="card-img" style="height:100%;background:linear-gradient(135deg,#0d4a7a 0%,#1B6CA8 40%,#2E8BC0 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.7);">[Property Photo]</span>
+          </div>
+          <span style="position:absolute;top:16px;left:16px;background:#1B6CA8;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:9999px;">FOR SALE</span>
+          <button class="heart-icon" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);border:none;border-radius:9999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;" aria-label="Save property">♡</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:700;color:#1B6CA8;margin-bottom:6px;">R12,500,000</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1A2332;margin-bottom:6px;">La Lucia Beachfront Villa</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;margin-bottom:16px;">📍 La Lucia, Durban North</div>
+          <div style="display:flex;border-top:1px solid #EEF4FB;padding-top:14px;margin-bottom:14px;">
+            {[['🛏','5 Beds'],['🚿','4 Baths'],['📐','480m²'],['🚗','4']].map((f,i) => (
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;flex:1;text-align:center;border-right:i<3?'1px solid #CBD5E1':'none';">
+                {f[0]} {f[1]}
+              </span>
+            ))}
+          </div>
+          <div style="border-top:1px solid #EEF4FB;padding-top:14px;display:flex;align-items:center;justify-content:space-between;">
+            <a href="#" class="view-link" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1B6CA8;text-decoration:none;">View Property →</a>
+            <div style="width:32px;height:32px;border-radius:9999px;background:linear-gradient(135deg,#0d4a7a,#1B6CA8);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:12px;color:#fff;">SK</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="prop-card fade-up delay-200" style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(27,108,168,0.08);overflow:hidden;border:1px solid #f0f4f8;">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <div class="card-img" style="height:100%;background:linear-gradient(135deg,#2E8BC0 0%,#5BA3CC 50%,#D6EAF8 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.7);">[Property Photo]</span>
+          </div>
+          <span style="position:absolute;top:16px;left:16px;background:#C9A84C;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:9999px;">TO LET</span>
+          <button class="heart-icon" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);border:none;border-radius:9999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;" aria-label="Save property">♡</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:700;color:#1B6CA8;margin-bottom:6px;">R28,000<span style="font-size:14px;font-weight:400;color:#6B7C93;">/month</span></div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1A2332;margin-bottom:6px;">Modern Umhlanga Apartment</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;margin-bottom:16px;">📍 Umhlanga Rocks, Durban</div>
+          <div style="display:flex;border-top:1px solid #EEF4FB;padding-top:14px;margin-bottom:14px;">
+            {[['🛏','2 Beds'],['🚿','2 Baths'],['📐','95m²'],['🚗','1']].map((f,i) => (
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;flex:1;text-align:center;border-right:i<3?'1px solid #CBD5E1':'none';">
+                {f[0]} {f[1]}
+              </span>
+            ))}
+          </div>
+          <div style="border-top:1px solid #EEF4FB;padding-top:14px;display:flex;align-items:center;justify-content:space-between;">
+            <a href="#" class="view-link" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1B6CA8;text-decoration:none;">View Property →</a>
+            <div style="width:32px;height:32px;border-radius:9999px;background:linear-gradient(135deg,#2E8BC0,#5BA3CC);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:12px;color:#fff;">PN</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="prop-card fade-up" style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(27,108,168,0.08);overflow:hidden;border:1px solid #f0f4f8;">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <div class="card-img" style="height:100%;background:linear-gradient(135deg,#1A2332 0%,#1B6CA8 60%,#2E8BC0 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.7);">[Property Photo]</span>
+          </div>
+          <span style="position:absolute;top:16px;left:16px;background:#1A2332;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:9999px;">COMMERCIAL</span>
+          <button class="heart-icon" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);border:none;border-radius:9999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;" aria-label="Save property">♡</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:700;color:#1B6CA8;margin-bottom:6px;">R3,800,000</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1A2332;margin-bottom:6px;">Gateway Business Park Office</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;margin-bottom:16px;">📍 Umhlanga, Durban</div>
+          <div style="display:flex;border-top:1px solid #EEF4FB;padding-top:14px;margin-bottom:14px;">
+            {[['🏢','Open Plan'],['📐','320m²'],['🚗','8 Park'],['✓','Prime']].map((f,i) => (
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;flex:1;text-align:center;border-right:i<3?'1px solid #CBD5E1':'none';">
+                {f[0]} {f[1]}
+              </span>
+            ))}
+          </div>
+          <div style="border-top:1px solid #EEF4FB;padding-top:14px;display:flex;align-items:center;justify-content:space-between;">
+            <a href="#" class="view-link" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1B6CA8;text-decoration:none;">View Property →</a>
+            <div style="width:32px;height:32px;border-radius:9999px;background:linear-gradient(135deg,#1A2332,#2E8BC0);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:12px;color:#fff;">PN</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="prop-card fade-up delay-100" style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(27,108,168,0.08);overflow:hidden;border:1px solid #f0f4f8;">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <div class="card-img" style="height:100%;background:linear-gradient(135deg,#1B6CA8 0%,#5BA3CC 40%,#aac9e3 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.7);">[Property Photo]</span>
+          </div>
+          <span style="position:absolute;top:16px;left:16px;background:#1B6CA8;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:9999px;">FOR SALE</span>
+          <button class="heart-icon" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);border:none;border-radius:9999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;" aria-label="Save property">♡</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:700;color:#1B6CA8;margin-bottom:6px;">R8,900,000</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1A2332;margin-bottom:6px;">Ballito Coastal Estate Home</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;margin-bottom:16px;">📍 Ballito, KZN North Coast</div>
+          <div style="display:flex;border-top:1px solid #EEF4FB;padding-top:14px;margin-bottom:14px;">
+            {[['🛏','4 Beds'],['🚿','3 Baths'],['📐','380m²'],['🚗','3']].map((f,i) => (
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;flex:1;text-align:center;border-right:i<3?'1px solid #CBD5E1':'none';">
+                {f[0]} {f[1]}
+              </span>
+            ))}
+          </div>
+          <div style="border-top:1px solid #EEF4FB;padding-top:14px;display:flex;align-items:center;justify-content:space-between;">
+            <a href="#" class="view-link" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1B6CA8;text-decoration:none;">View Property →</a>
+            <div style="width:32px;height:32px;border-radius:9999px;background:linear-gradient(135deg,#1B6CA8,#5BA3CC);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:12px;color:#fff;">MC</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="prop-card fade-up delay-200" style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(27,108,168,0.08);overflow:hidden;border:1px solid #f0f4f8;">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <div class="card-img" style="height:100%;background:linear-gradient(135deg,#0a3d68 0%,#1B6CA8 30%,#2E8BC0 70%,#5BA3CC 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Serif Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.7);">[Property Photo]</span>
+          </div>
+          <span style="position:absolute;top:16px;left:16px;background:#C9A84C;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:9999px;">TO LET</span>
+          <button class="heart-icon" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);border:none;border-radius:9999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;" aria-label="Save property">♡</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:700;color:#1B6CA8;margin-bottom:6px;">R45,000<span style="font-size:14px;font-weight:400;color:#6B7C93;">/month</span></div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1A2332;margin-bottom:6px;">Penthouse — The Pearls, Umhlanga</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:#6B7C93;margin-bottom:16px;">📍 The Pearls, Umhlanga</div>
+          <div style="display:flex;border-top:1px solid #EEF4FB;padding-top:14px;margin-bottom:14px;">
+            {[['🛏','4 Beds'],['🚿','3 Baths'],['📐','320m²'],['🚗','2']].map((f,i) => (
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;flex:1;text-align:center;border-right:i<3?'1px solid #CBD5E1':'none';">
+                {f[0]} {f[1]}
+              </span>
+            ))}
+          </div>
+          <div style="border-top:1px solid #EEF4FB;padding-top:14px;display:flex;align-items:center;justify-content:space-between;">
+            <a href="#" class="view-link" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1B6CA8;text-decoration:none;">View Property →</a>
+            <div style="width:32px;height:32px;border-radius:9999px;background:linear-gradient(135deg,#0a3d68,#1B6CA8);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:12px;color:#fff;">SK</div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /grid -->
+
+    <!-- View All -->
+    <div class="fade-up text-center" style="margin-top:52px;">
+      <a
+        href="#"
+        style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;color:#1B6CA8;border:2px solid #1B6CA8;padding:16px 40px;border-radius:9999px;display:inline-block;text-decoration:none;transition:all 0.3s ease;"
+        onmouseover="this.style.background='#1B6CA8';this.style.color='#fff'"
+        onmouseout="this.style.background='transparent';this.style.color='#1B6CA8'"
+      >VIEW ALL LISTINGS →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — COASTAL FULL WIDTH FEATURE
+════════════════════════════════════════════ -->
+<section style="display:flex;min-height:100vh;width:100%;" id="rent">
+
+  <!-- Left: Ocean blue -->
+  <div class="fade-up" style="width:50%;background:#1B6CA8;display:flex;align-items:center;justify-content:center;padding:80px 64px;position:relative;overflow:hidden;">
+    <!-- Subtle geometric background -->
+    <div style="position:absolute;top:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.03);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-120px;right:-60px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;"></div>
+
+    <div style="position:relative;z-index:1;max-width:480px;">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(56px,6vw,88px);font-style:italic;color:#fff;line-height:1.0;margin-bottom:32px;">
+        Life is<br/>
+        better<br/>
+        by the<br/>
+        ocean.
+      </h2>
+      <p style="font-family:'DM Sans',sans-serif;font-size:17px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;">
+        Umhlanga's coastline is one of South Africa's most sought-after addresses. We know every street, every building and every opportunity on this coast.
+      </p>
+      <a
+        href="#buy"
+        style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;color:#fff;border:2px solid rgba(255,255,255,0.7);padding:16px 32px;border-radius:9999px;display:inline-block;text-decoration:none;transition:all 0.3s ease;"
+        onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.borderColor='#fff'"
+        onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.7)'"
+      >EXPLORE UMHLANGA PROPERTIES</a>
+    </div>
+  </div>
+
+  <!-- Gold divider -->
+  <div style="width:4px;background:linear-gradient(to bottom,transparent,#C9A84C,#C9A84C,transparent);flex-shrink:0;position:relative;z-index:2;"></div>
+
+  <!-- Right: Image -->
+  <div style="width:50%;background:linear-gradient(135deg,#D6EAF8 0%,#EEF4FB 40%,#F7F9FC 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#aac9e3 0%,#D6EAF8 40%,#f0f7fc 100%);"></div>
+    <!-- Decorative circles simulating aerial view -->
+    <div style="position:absolute;top:20%;left:30%;width:200px;height:200px;border-radius:50%;background:rgba(27,108,168,0.08);"></div>
+    <div style="position:absolute;top:40%;left:20%;width:140px;height:140px;border-radius:50%;background:rgba(27,108,168,0.06);"></div>
+    <div style="position:absolute;bottom:25%;right:25%;width:300px;height:300px;border-radius:50%;background:rgba(27,108,168,0.05);"></div>
+    <div style="position:relative;z-index:1;text-align:center;padding:48px;">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 20px;opacity:0.35;">
+        <rect x="10" y="10" width="60" height="45" rx="4" fill="none" stroke="#1B6CA8" stroke-width="2"/>
+        <circle cx="28" cy="25" r="7" fill="#1B6CA8" opacity="0.4"/>
+        <path d="M10 40 L25 28 L38 38 L52 26 L70 42" stroke="#1B6CA8" stroke-width="2" fill="none"/>
+        <path d="M10 60 Q25 52 40 56 Q55 60 70 55" stroke="#1B6CA8" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+      </svg>
+      <p style="font-family:'DM Serif Display',serif;font-size:24px;font-style:italic;color:#1B6CA8;margin-bottom:12px;">[Aerial Umhlanga Coastline]</p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.15em;color:#6B7C93;text-transform:uppercase;">The KZN North Coast</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — WHY PINNACLE
+════════════════════════════════════════════ -->
+<section id="about" style="background:#F7F9FC;padding:96px 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:35% 65%;gap:64px;align-items:start;">
+
+    <!-- Left -->
+    <div class="fade-up" style="position:relative;padding-left:28px;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#1B6CA8;border-radius:2px;"></div>
+      <span class="section-label" style="display:block;margin-bottom:20px;">WHY PINNACLE REALTY</span>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(32px,3.5vw,52px);color:#1A2332;line-height:1.15;margin-bottom:20px;">
+        15 years of knowing this coast better than anyone.
+      </h2>
+      <span class="gold-line-left" style="margin-bottom:28px;display:block;"></span>
+      <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#6B7C93;line-height:1.75;margin-bottom:20px;">
+        Pinnacle Realty was founded in 2009 by coastal property specialists who believed KZN deserved better than generic national agencies with no local knowledge.
+      </p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#6B7C93;line-height:1.75;">
+        We live here. We know every street in Umhlanga, every building in La Lucia, every estate from Ballito to Sheffield Beach. When you work with Pinnacle you get agents who are genuinely invested in your outcome — not your commission.
+      </p>
+    </div>
+
+    <!-- Right: 2x2 grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      {[
+        {icon:'🌊',title:'Local Expertise',body:'15 years exclusively on the KZN North Coast. No national franchises. No agents who live in Joburg.'},
+        {icon:'📊',title:'Market Intelligence',body:'Real time data on every suburb, every building and every street from Umhlanga to Ballito.'},
+        {icon:'🏆',title:'Award Winning',body:'KZN Property Agency of the Year 2022 and 2023. Recognised by the Institute of Estate Agents SA.'},
+        {icon:'🤝',title:'Full Service',body:'Buying, selling, renting, commercial leasing and property management — one team, one number.'},
+      ].map((b,i) => (
+        <div class={`fade-up delay-${(i+1)*100}`} style="background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(27,108,168,0.07);border:1px solid #EEF4FB;">
+          <div style="font-size:28px;margin-bottom:14px;">{b.icon}</div>
+          <h3 style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;color:#1A2332;margin-bottom:10px;">{b.title}</h3>
+          <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#6B7C93;line-height:1.65;">{b.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 — STATS BAR
+════════════════════════════════════════════ -->
+<section style="background:#1B6CA8;padding:72px 24px;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;">
+    {[
+      {num:'850+', label:'Active Listings'},
+      {num:'R2.4B+', label:'Property Sold'},
+      {num:'240', label:'Happy Clients This Year'},
+      {num:'15', label:'Years on the Coast'},
+    ].map((s,i) => (
+      <div
+        class={`fade-up delay-${i*100} text-center`}
+        style={`padding:24px 16px;${i<3?'border-right:1px solid rgba(255,255,255,0.2);':''}`}
+      >
+        <div class="stat-number counter" data-target={s.num}>{s.num}</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.75);margin-top:10px;letter-spacing:0.03em;">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7 — AGENTS
+════════════════════════════════════════════ -->
+<section style="background:#ffffff;padding:96px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="fade-up text-center" style="margin-bottom:64px;">
+      <span class="section-label">OUR TEAM</span>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,52px);color:#1A2332;margin:16px 0 0;">
+        Meet Your Coastal Experts
+      </h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      {[
+        {init:'TK',name:'Thabo Khumalo',title:'Senior Property Specialist',area:'Umhlanga Ridge · La Lucia · Berea',sales:'42 Sales · R180M+',grad:'135deg,#1B6CA8,#0d4a7a'},
+        {init:'SK',name:'Samantha Kruger',title:'Coastal Residential Expert',area:'Umhlanga Rocks · The Pearls · Lagoon Drive',sales:'38 Sales · R210M+',grad:'135deg,#2E8BC0,#1B6CA8'},
+        {init:'PN',name:'Priya Naidoo',title:'Commercial Property Specialist',area:'Umhlanga Business District · Gateway',sales:'29 Sales · R145M+',grad:'135deg,#0d4a7a,#2E8BC0'},
+        {init:'MC',name:'Michael Clarke',title:'North Coast Specialist',area:'Ballito · Salt Rock · Sheffield Beach',sales:'55 Sales · R320M+',grad:'135deg,#1B6CA8,#5BA3CC'},
+      ].map((a,i) => (
+        <div class={`agent-card fade-up delay-${i*100}`} style="background:#fff;border-radius:16px;padding:32px 24px;text-align:center;box-shadow:0 4px 24px rgba(27,108,168,0.07);border:1px solid #EEF4FB;">
+          <!-- Avatar -->
+          <div style={`width:96px;height:96px;border-radius:50%;background:linear-gradient(${a.grad});display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'DM Serif Display',serif;font-size:24px;color:#fff;`}>{a.init}</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:18px;color:#1A2332;margin-bottom:6px;">{a.name}</h3>
+          <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;color:#1B6CA8;text-transform:uppercase;margin-bottom:10px;">{a.title}</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;color:#6B7C93;margin-bottom:14px;line-height:1.5;">{a.area}</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:#1B6CA8;background:#EEF4FB;padding:6px 14px;border-radius:9999px;display:inline-block;margin-bottom:20px;">{a.sales}</div>
+          <div style="display:flex;justify-content:center;gap:12px;">
+            <a href="tel:0315660800" style="width:36px;height:36px;border-radius:50%;border:1.5px solid #CBD5E1;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:all 0.2s ease;color:#1B6CA8;" onmouseover="this.style.background='#1B6CA8';this.style.borderColor='#1B6CA8';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.borderColor='#CBD5E1';this.style.color='#1B6CA8'" aria-label={`Call ${a.name}`}>📞</a>
+            <a href="mailto:hello@pinnaclerealty.co.za" style="width:36px;height:36px;border-radius:50%;border:1.5px solid #CBD5E1;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:all 0.2s ease;color:#1B6CA8;" onmouseover="this.style.background='#1B6CA8';this.style.borderColor='#1B6CA8';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.borderColor='#CBD5E1';this.style.color='#1B6CA8'" aria-label={`Email ${a.name}`}>✉️</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8 — TESTIMONIALS
+════════════════════════════════════════════ -->
+<section style="background:#EEF4FB;padding:96px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="fade-up text-center" style="margin-bottom:64px;">
+      <span class="section-label">CLIENT STORIES</span>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,52px);color:#1A2332;margin:16px 0 0;">
+        What Our Clients Say
+      </h2>
+      <span class="gold-line"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      {[
+        {
+          quote:'Pinnacle found us our dream home in Umhlanga within three weeks. Thabo knew every building on the Ridge personally. We could not have done it without him.',
+          name:'The Pillay Family',
+          detail:'Umhlanga Ridge Purchase · R4.8M'
+        },
+        {
+          quote:'We listed our La Lucia home on a Friday. Pinnacle had three offers by Monday morning. Sold above asking price. Remarkable.',
+          name:'D. Robertson',
+          detail:'La Lucia Sale · R9.2M'
+        },
+        {
+          quote:'Priya secured our new office in Umhlanga Business District in under two weeks. The best commercial agent on the North Coast — no question.',
+          name:'CEO, Durban Tech Company',
+          detail:'Commercial Lease · 450m²'
+        },
+      ].map((t,i) => (
+        <div class={`fade-up delay-${i*100}`} style="background:#fff;border-radius:16px;padding:36px 32px;box-shadow:0 4px 24px rgba(27,108,168,0.07);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+            <div class="quote-mark">"</div>
+            <div style="color:#C9A84C;font-size:18px;letter-spacing:2px;">★★★★★</div>
+          </div>
+          <p style="font-family:'DM Serif Display',serif;font-size:17px;font-style:italic;color:#1A2332;line-height:1.7;margin-bottom:28px;">
+            "{t.quote}"
+          </p>
+          <div style="border-top:1px solid #EEF4FB;padding-top:20px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#1A2332;margin-bottom:4px;">— {t.name}</div>
+            <div style="font-family:'DM Sans',sans-serif;font-size:12px;color:#1B6CA8;">{t.detail}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9 — LIST YOUR PROPERTY
+════════════════════════════════════════════ -->
+<section style="display:grid;grid-template-columns:1fr 1fr;min-height:700px;">
+
+  <!-- Left: White -->
+  <div class="fade-up" style="background:#fff;padding:80px 64px;display:flex;flex-direction:column;justify-content:center;">
+    <span class="section-label" style="display:block;margin-bottom:20px;">SELL OR LET</span>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(32px,3.5vw,52px);color:#1A2332;line-height:1.15;margin-bottom:20px;">
+      Ready to list your property?
+    </h2>
+    <p style="font-family:'DM Sans',sans-serif;font-size:16px;color:#6B7C93;line-height:1.75;margin-bottom:32px;max-width:420px;">
+      Get a free property valuation from KZN's most trusted coastal agency. Our agents will assess your property, advise on the best strategy and market it to our database of 4,000+ active buyers.
+    </p>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px;">
+      {[
+        'Free property valuation',
+        'Professional photography included',
+        'Listed within 48 hours of mandate',
+      ].map(b => (
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:50%;background:#1B6CA8;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-family:'DM Sans',sans-serif;font-size:15px;color:#1A2332;">{b}</span>
+        </div>
+      ))}
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
+      <a
+        href="#contact"
+        style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;background:#1B6CA8;color:#fff;padding:18px 40px;border-radius:9999px;text-decoration:none;transition:background 0.2s ease;"
+        onmouseover="this.style.background='#2E8BC0'"
+        onmouseout="this.style.background='#1B6CA8'"
+      >BOOK FREE VALUATION</a>
+      <a href="tel:0315660800" style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#1B6CA8;text-decoration:none;">📞 031 566 0800</a>
+    </div>
+  </div>
+
+  <!-- Right: Ocean blue form -->
+  <div class="fade-up delay-200" style="background:#1B6CA8;padding:64px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;"></div>
+    <h3 style="font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:32px;position:relative;z-index:1;">GET YOUR FREE VALUATION</h3>
+    <form style="display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;" onsubmit="event.preventDefault()">
+      <input type="text" placeholder="Full Name" class="form-input-dark" required />
+      <input type="email" placeholder="Email Address" class="form-input-dark" required />
+      <input type="tel" placeholder="Phone Number" class="form-input-dark" />
+      <input type="text" placeholder="Property Address" class="form-input-dark" />
+      <select class="form-input-dark" aria-label="Property type">
+        <option value="">Property Type</option>
+        <option>House</option>
+        <option>Apartment</option>
+        <option>Commercial</option>
+        <option>Land</option>
+      </select>
+      <select class="form-input-dark" aria-label="Estimated value">
+        <option value="">Estimated Value</option>
+        <option>Under R2M</option>
+        <option>R2M — R5M</option>
+        <option>R5M — R10M</option>
+        <option>R10M — R20M</option>
+        <option>R20M+</option>
+      </select>
+      <select class="form-input-dark" aria-label="Best time to call">
+        <option value="">Best time to call</option>
+        <option>Morning (8am — 12pm)</option>
+        <option>Afternoon (12pm — 5pm)</option>
+        <option>Evening (5pm — 7pm)</option>
+      </select>
+      <button
+        type="submit"
+        style="margin-top:8px;width:100%;padding:16px;background:#fff;color:#1B6CA8;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;letter-spacing:0.08em;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s ease;"
+        onmouseover="this.style.background='#D6EAF8'"
+        onmouseout="this.style.background='#fff'"
+      >REQUEST VALUATION</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 10 — CONTACT
+════════════════════════════════════════════ -->
+<section id="contact" style="background:#fff;padding:96px 24px;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+
+    <!-- Left -->
+    <div class="fade-up">
+      <span class="section-label" style="display:block;margin-bottom:20px;">CONTACT US</span>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,44px);color:#1A2332;line-height:1.2;margin-bottom:16px;">
+        Visit Our Umhlanga Office
+      </h2>
+      <span class="gold-line-left" style="display:block;margin-bottom:36px;"></span>
+
+      <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:40px;">
+        {[
+          {icon:'📍', text:'12 Chartwell Drive, Umhlanga, 4319'},
+          {icon:'📞', text:'031 566 0800', href:'tel:0315660800'},
+          {icon:'✉️', text:'hello@pinnaclerealty.co.za', href:'mailto:hello@pinnaclerealty.co.za'},
+          {icon:'⏰', text:'Mon—Fri: 08:00 — 17:00  |  Sat: 09:00 — 13:00  |  Sun: Closed'},
+        ].map(d => (
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="font-size:18px;flex-shrink:0;margin-top:2px;">{d.icon}</span>
+            {d.href
+              ? <a href={d.href} style="font-family:'DM Sans',sans-serif;font-size:15px;color:#1B6CA8;text-decoration:none;font-weight:500;">{d.text}</a>
+              : <span style="font-family:'DM Sans',sans-serif;font-size:15px;color:#1A2332;line-height:1.6;">{d.text}</span>
+            }
+          </div>
+        ))}
+      </div>
+
+      <!-- Socials -->
+      <div style="display:flex;gap:12px;margin-bottom:40px;">
+        {['Instagram','Facebook','LinkedIn'].map(s => (
+          <a href="#" style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;color:#1B6CA8;border:1.5px solid #CBD5E1;padding:8px 18px;border-radius:9999px;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.background='#1B6CA8';this.style.color='#fff';this.style.borderColor='#1B6CA8'" onmouseout="this.style.background='transparent';this.style.color='#1B6CA8';this.style.borderColor='#CBD5E1'" aria-label={s}>{s}</a>
+        ))}
+      </div>
+
+      <!-- Map placeholder -->
+      <div style="border:2px solid #1B6CA8;border-radius:16px;background:#EEF4FB;height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#D6EAF8,#EEF4FB);"></div>
+        <!-- Decorative map lines -->
+        <svg width="100%" height="100%" style="position:absolute;inset:0;opacity:0.15;" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
+          <line x1="0" y1="80" x2="400" y2="80" stroke="#1B6CA8" stroke-width="1"/>
+          <line x1="0" y1="160" x2="400" y2="160" stroke="#1B6CA8" stroke-width="1"/>
+          <line x1="100" y1="0" x2="100" y2="240" stroke="#1B6CA8" stroke-width="1"/>
+          <line x1="200" y1="0" x2="200" y2="240" stroke="#1B6CA8" stroke-width="1"/>
+          <line x1="300" y1="0" x2="300" y2="240" stroke="#1B6CA8" stroke-width="1"/>
+          <circle cx="200" cy="120" r="20" fill="#1B6CA8" opacity="0.3"/>
+          <circle cx="200" cy="120" r="8" fill="#1B6CA8" opacity="0.6"/>
+        </svg>
+        <div style="position:relative;z-index:1;text-align:center;">
+          <p style="font-family:'DM Serif Display',serif;font-size:20px;font-style:italic;color:#1B6CA8;margin-bottom:16px;">[Map — Umhlanga, Durban]</p>
+          <div style="display:flex;gap:10px;justify-content:center;">
+            <span style="background:#fff;border:1px solid #D6EAF8;color:#1A2332;font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 14px;border-radius:9999px;">🅿️ Free parking</span>
+            <span style="background:#fff;border:1px solid #D6EAF8;color:#1A2332;font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 14px;border-radius:9999px;">🌊 2 min from beach</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Contact form -->
+    <div class="fade-up delay-200">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:32px;color:#1A2332;margin-bottom:32px;">
+        Send Us a Message
+      </h3>
+      <form style="display:flex;flex-direction:column;gap:16px;" onsubmit="event.preventDefault()">
+        <input type="text" placeholder="Full Name" class="form-input" required />
+        <input type="email" placeholder="Email Address" class="form-input" required />
+        <input type="tel" placeholder="Phone Number" class="form-input" />
+
+        <!-- Radio pills -->
+        <div>
+          <p style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#6B7C93;margin-bottom:10px;letter-spacing:0.05em;">I AM INTERESTED IN</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            {['Buying','Renting','Selling','Commercial'].map((opt,i) => (
+              <div class="radio-pill">
+                <input type="radio" name="interest" id={`interest-${i}`} value={opt.toLowerCase()} checked={i===0} />
+                <label for={`interest-${i}`}>{opt}</label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <textarea placeholder="Message" class="form-input" rows={5} style="resize:vertical;"></textarea>
+        <button
+          type="submit"
+          style="width:100%;padding:18px;background:#1B6CA8;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;letter-spacing:0.08em;border:none;border-radius:8px;cursor:pointer;transition:background 0.2s ease;"
+          onmouseover="this.style.background='#2E8BC0'"
+          onmouseout="this.style.background='#1B6CA8'"
+        >SEND MESSAGE</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer style="background:#fff;border-top:3px solid #1B6CA8;padding:72px 24px 0;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:64px;">
+
+      <!-- Col 1 -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="18,4 32,28 4,28" fill="none" stroke="#1B6CA8" stroke-width="2.5" stroke-linejoin="round"/>
+            <polygon points="18,10 27,26 9,26" fill="#D6EAF8"/>
+            <line x1="18" y1="4" x2="18" y2="28" stroke="#1B6CA8" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <div style="font-family:'DM Serif Display',serif;font-size:17px;font-weight:700;color:#1B6CA8;">PINNACLE REALTY</div>
+          </div>
+        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:14px;font-style:italic;color:#6B7C93;line-height:1.6;margin-bottom:10px;">Where the Ocean Meets Opportunity</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:12px;color:#9fb0c4;">Umhlanga, Durban · Est. 2009</p>
+      </div>
+
+      <!-- Col 2 -->
+      <div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#1B6CA8;text-transform:uppercase;margin-bottom:20px;">PROPERTIES</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          {['For Sale','To Let','Commercial','New Developments','Luxury Collection'].map(l => (
+            <a href="#buy" style="font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#1B6CA8'" onmouseout="this.style.color='#1A2332'">{l}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#1B6CA8;text-transform:uppercase;margin-bottom:20px;">SERVICES</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          {['Buy a Property','Sell Your Home','Rental Management','Commercial Leasing','Free Valuation'].map(l => (
+            <a href="#contact" style="font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#1B6CA8'" onmouseout="this.style.color='#1A2332'">{l}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Col 4 -->
+      <div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#1B6CA8;text-transform:uppercase;margin-bottom:20px;">CONTACT</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#6B7C93;line-height:1.5;">12 Chartwell Drive, Umhlanga</p>
+          <a href="tel:0315660800" style="font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;text-decoration:none;" onmouseover="this.style.color='#1B6CA8'" onmouseout="this.style.color='#1A2332'">031 566 0800</a>
+          <a href="mailto:hello@pinnaclerealty.co.za" style="font-family:'DM Sans',sans-serif;font-size:14px;color:#1A2332;text-decoration:none;" onmouseover="this.style.color='#1B6CA8'" onmouseout="this.style.color='#1A2332'">hello@pinnaclerealty.co.za</a>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:20px;">
+          {['IG','FB','LI'].map(s => (
+            <a href="#" style="width:34px;height:34px;border-radius:50%;border:1.5px solid #CBD5E1;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:#1B6CA8;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#1B6CA8';this.style.color='#fff';this.style.borderColor='#1B6CA8'" onmouseout="this.style.background='transparent';this.style.color='#1B6CA8';this.style.borderColor='#CBD5E1'" aria-label={s}>{s}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid #CBD5E1;padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:#9fb0c4;">© 2026 Pinnacle Realty. All rights reserved. Umhlanga, Durban, KwaZulu-Natal.</p>
+      <a href="https://webafy.co.za" target="_blank" rel="noopener noreferrer" style="font-family:'DM Sans',sans-serif;font-size:13px;color:#1B6CA8;text-decoration:none;font-weight:500;">Website by Webafy — webafy.co.za</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     RESPONSIVE STYLES
+════════════════════════════════════════════ -->
+<style>
+  @media (max-width: 1024px) {
+    .listings-grid { grid-template-columns: repeat(2,1fr) !important; }
+    section[id="about"] > div { grid-template-columns: 1fr !important; }
+    section[style*="grid-template-columns:35%"] > div { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-split { flex-direction: column !important; }
+    .hero-right { display: none !important; }
+    .hero-left { width: 100% !important; padding: 40px 24px 48px !important; }
+    .hero-h1 { font-size: 48px !important; }
+    .search-bar-grid { flex-direction: column !important; }
+    .search-bar-grid select { border-right: none !important; border-bottom: 1px solid #CBD5E1 !important; }
+    .listings-grid { grid-template-columns: 1fr !important; }
+    section[style*="grid-template-columns:repeat(4,1fr)"] > div { grid-template-columns: repeat(2,1fr) !important; }
+    section[style*="grid-template-columns:repeat(3,1fr)"] > div { grid-template-columns: 1fr !important; }
+    section[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    section[style*="grid-template-columns:1.4fr 1fr 1fr 1fr"] { grid-template-columns: repeat(2,1fr) !important; }
+    section[id="rent"] { flex-direction: column !important; }
+    section[id="rent"] > div { width: 100% !important; min-height: 400px; }
+    section[id="about"] > div { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 480px) {
+    section[style*="grid-template-columns:1.4fr 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    section[style*="grid-template-columns:repeat(4,1fr)"] > div { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT — Interactions & Animations
+════════════════════════════════════════════ -->
+<script>
+  // ── Nav shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      navbar?.classList.add('nav-shadow');
+    } else {
+      navbar?.classList.remove('nav-shadow');
+    }
+  }, { passive: true });
+
+  // ── Mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose = document.getElementById('menu-close');
+
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeMenu() {
+    mobileMenu?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuClose?.addEventListener('click', closeMenu);
+  mobileMenu?.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // ── Intersection observer — fade up
+  const fadeEls = document.querySelectorAll<HTMLElement>('.fade-up');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── Filter pills
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // ── Counter animation
+  function animateCounter(el: HTMLElement, target: string) {
+    const numericMatch = target.match(/[\d.]+/);
+    if (!numericMatch) return;
+    const num = parseFloat(numericMatch[0]);
+    const prefix = target.replace(/[\d.]+.*/, '');
+    const suffix = target.replace(/^[^0-9]*[\d.]+/, '');
+    let start = 0;
+    const duration = 1800;
+    const startTime = performance.now();
+
+    function update(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * num * 10) / 10;
+      el.textContent = prefix + (Number.isInteger(num) ? Math.round(current).toString() : current.toString()) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const statObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = el.dataset.target;
+          if (target) animateCounter(el, target);
+          statObserver.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  document.querySelectorAll<HTMLElement>('.counter').forEach(el => statObserver.observe(el));
+
+  // ── Heart toggle
+  document.querySelectorAll<HTMLButtonElement>('.heart-icon').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const saved = btn.dataset.saved === 'true';
+      btn.dataset.saved = saved ? 'false' : 'true';
+      btn.textContent = saved ? '♡' : '♥';
+      btn.style.color = saved ? '' : '#e74c3c';
+    });
+  });
+</script>
+
+</Layout>
