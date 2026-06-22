@@ -1114,25 +1114,29 @@ import '../styles/global.css';
   const heroLocationEl = document.getElementById('hero-active-location');
   const heroSublabelEl = document.getElementById('hero-active-sublabel');
 
+  function activatePanel(targetIdx: number) {
+    heroPanels.forEach((panel, i) => {
+      const isActive = i === targetIdx;
+      panel.classList.toggle('active', isActive);
+      panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+    heroThumbs.forEach(t => t.classList.remove('thumb-active'));
+    heroThumbs[targetIdx]?.classList.add('thumb-active');
+    const activePanel = heroPanels[targetIdx];
+    if (heroLocationEl) heroLocationEl.textContent = activePanel?.dataset.location ?? '';
+    if (heroSublabelEl) heroSublabelEl.textContent = activePanel?.dataset.sublabel ?? '';
+  }
+
+  const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+
   heroThumbs.forEach(thumb => {
+    // Desktop — hover
+    thumb.addEventListener('mouseenter', () => {
+      if (!isTouchDevice()) activatePanel(Number(thumb.dataset.panel));
+    });
+    // Mobile — tap
     thumb.addEventListener('click', () => {
-      const targetIdx = Number(thumb.dataset.panel);
-
-      // Swap panels
-      heroPanels.forEach((panel, i) => {
-        const isActive = i === targetIdx;
-        panel.classList.toggle('active', isActive);
-        panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-      });
-
-      // Swap active thumbnail
-      heroThumbs.forEach(t => t.classList.remove('thumb-active'));
-      thumb.classList.add('thumb-active');
-
-      // Update location bar text
-      const activePanel = heroPanels[targetIdx];
-      if (heroLocationEl) heroLocationEl.textContent = activePanel.dataset.location ?? '';
-      if (heroSublabelEl) heroSublabelEl.textContent = activePanel.dataset.sublabel ?? '';
+      if (isTouchDevice()) activatePanel(Number(thumb.dataset.panel));
     });
   });
 
