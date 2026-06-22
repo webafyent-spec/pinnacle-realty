@@ -159,47 +159,158 @@ import '../styles/global.css';
     </div>
   </div>
 
-  <!-- Right: Image + Thumbnail cards -->
-  <div class="hero-right relative" style="width:50%;position:relative;overflow:hidden;">
-    <!-- Main image placeholder -->
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1B6CA8 0%,#2E8BC0 40%,#D6EAF8 100%);display:flex;align-items:center;justify-content:center;">
-      <div style="text-align:center;">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 16px;opacity:0.4;">
-          <rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/>
-          <circle cx="22" cy="22" r="5" fill="white" opacity="0.6"/>
-          <path d="M8 32 L20 20 L30 30 L40 22 L56 36" stroke="white" stroke-width="2" fill="none"/>
-        </svg>
-        <p style="font-family:'DM Serif Display',serif;font-size:22px;font-style:italic;color:rgba(255,255,255,0.7);">[Beachfront Property Photo]</p>
-        <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);margin-top:8px;letter-spacing:0.08em;">UMHLANGA, KWAZULU-NATAL</p>
+  <!-- Right: Image switcher + Thumbnail cards -->
+  <div class="hero-right" style="width:50%;position:relative;overflow:hidden;">
+
+    <!--
+      ┌─────────────────────────────────────────┐
+      │  HERO IMAGES — add your photos here     │
+      │                                         │
+      │  Each panel maps to one thumbnail card. │
+      │  To swap in a real photo, replace the   │
+      │  <div class="hero-img-placeholder">     │
+      │  block with:                            │
+      │  <img src="/images/umhlanga-ridge.jpg"  │
+      │       alt="…" class="hero-img-real" />  │
+      └─────────────────────────────────────────┘
+    -->
+
+    <!-- Image panel 0 — Umhlanga Ridge (default active) -->
+    <div
+      id="hero-panel-0"
+      class="hero-panel active"
+      data-location="Umhlanga Ridge"
+      data-sublabel="UMHLANGA RIDGE, DURBAN"
+      aria-hidden="false"
+    >
+      <!--
+        REPLACE BELOW with:
+        <img src="/images/umhlanga-ridge.jpg" alt="Umhlanga Ridge property" class="hero-img-real" />
+      -->
+      <div class="hero-img-placeholder" style="background:linear-gradient(160deg,#1B6CA8 0%,#2E8BC0 40%,#D6EAF8 100%);">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto 16px;opacity:0.35;"><rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="white" opacity="0.6"/><path d="M8 32 L20 20 L30 30 L40 22 L56 36" stroke="white" stroke-width="2" fill="none"/></svg>
+        <p class="hero-panel-label">[Umhlanga Ridge Property]</p>
       </div>
     </div>
 
-    <!-- Subtle wave overlay -->
-    <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,rgba(214,234,248,0.3),transparent);pointer-events:none;"></div>
+    <!-- Image panel 1 — La Lucia Beachfront -->
+    <div
+      id="hero-panel-1"
+      class="hero-panel"
+      data-location="La Lucia Beachfront"
+      data-sublabel="LA LUCIA, DURBAN NORTH"
+      aria-hidden="true"
+    >
+      <!--
+        REPLACE BELOW with:
+        <img src="/images/la-lucia-beachfront.jpg" alt="La Lucia Beachfront Villa" class="hero-img-real" />
+      -->
+      <div class="hero-img-placeholder" style="background:linear-gradient(160deg,#0d4a7a 0%,#1B6CA8 35%,#2E8BC0 70%,#aac9e3 100%);">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto 16px;opacity:0.35;"><rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="white" opacity="0.6"/><path d="M8 38 Q20 24 32 32 Q44 40 56 26" stroke="white" stroke-width="2" fill="none"/></svg>
+        <p class="hero-panel-label">[La Lucia Beachfront Villa]</p>
+      </div>
+    </div>
+
+    <!-- Image panel 2 — Umhlanga Rocks -->
+    <div
+      id="hero-panel-2"
+      class="hero-panel"
+      data-location="Umhlanga Rocks"
+      data-sublabel="UMHLANGA ROCKS, DURBAN"
+      aria-hidden="true"
+    >
+      <!--
+        REPLACE BELOW with:
+        <img src="/images/umhlanga-rocks.jpg" alt="Umhlanga Rocks apartment" class="hero-img-real" />
+      -->
+      <div class="hero-img-placeholder" style="background:linear-gradient(160deg,#2E8BC0 0%,#5BA3CC 40%,#D6EAF8 100%);">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto 16px;opacity:0.35;"><rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/><circle cx="44" cy="20" r="5" fill="white" opacity="0.6"/><path d="M8 36 L18 28 L28 34 L40 22 L56 30" stroke="white" stroke-width="2" fill="none"/></svg>
+        <p class="hero-panel-label">[Umhlanga Rocks Apartment]</p>
+      </div>
+    </div>
+
+    <!-- Location label overlay (bottom of image) -->
+    <div id="hero-location-bar" style="position:absolute;bottom:0;left:0;right:0;z-index:5;padding:32px 28px;background:linear-gradient(to top,rgba(10,30,50,0.65) 0%,transparent 100%);pointer-events:none;">
+      <p id="hero-active-location" style="font-family:'DM Serif Display',serif;font-size:20px;font-style:italic;color:#fff;margin-bottom:4px;">Umhlanga Ridge</p>
+      <p id="hero-active-sublabel" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.14em;color:rgba(255,255,255,0.65);">UMHLANGA RIDGE, DURBAN</p>
+    </div>
 
     <!-- Thumbnail cards stacked on the left edge -->
-    <div style="position:absolute;left:-120px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:10;">
+    <div style="position:absolute;left:-110px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:10;">
       {[
-        {price:'R4.2M', loc:'Umhlanga Ridge', idx:0},
-        {price:'R12.5M', loc:'La Lucia Beachfront', idx:1},
-        {price:'R8.9M', loc:'Umhlanga Rocks', idx:2},
+        {price:'R4.2M', loc:'Umhlanga Ridge', sublabel:'Umhlanga Ridge, Durban', idx:0},
+        {price:'R12.5M', loc:'La Lucia Beachfront', sublabel:'La Lucia, Durban North', idx:1},
+        {price:'R8.9M', loc:'Umhlanga Rocks', sublabel:'Umhlanga Rocks, Durban', idx:2},
       ].map(t => (
-        <div
-          class={`thumb-card fade-up delay-${(t.idx+3)*100}`}
-          style="width:220px;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(27,108,168,0.18);overflow:hidden;display:flex;align-items:stretch;"
+        <button
+          class={`thumb-card hero-thumb fade-up delay-${(t.idx+3)*100}${t.idx===0?' thumb-active':''}`}
+          data-panel={t.idx}
+          aria-label={`View ${t.loc} property`}
+          style="width:220px;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(27,108,168,0.18);overflow:hidden;display:flex;align-items:stretch;border:none;padding:0;cursor:pointer;text-align:left;"
         >
-          <div style="width:56px;background:linear-gradient(135deg,#1A2332,#2E8BC0);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+          <div class="thumb-bar" style="width:56px;background:linear-gradient(135deg,#1A2332,#2E8BC0);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background 0.25s ease;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="white" stroke-width="1.5"/><path d="M6 16V11h6v5" stroke="white" stroke-width="1.5"/><path d="M1 7l8-5 8 5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <div style="padding:10px 14px;">
+          <div style="padding:12px 14px;">
             <div style="font-family:'DM Serif Display',serif;font-size:14px;font-weight:700;color:#1B6CA8;">{t.price}</div>
-            <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:#6B7C93;margin-top:2px;">📍 {t.loc}</div>
+            <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:#6B7C93;margin-top:3px;">📍 {t.loc}</div>
           </div>
-        </div>
+        </button>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  /* ── Hero image panels ── */
+  .hero-panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    pointer-events: none;
+  }
+  .hero-panel.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  .hero-img-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  /* When you add real images, they fill the panel */
+  .hero-img-real {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-panel-label {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+  }
+
+  /* ── Active thumbnail state ── */
+  .thumb-active {
+    box-shadow: 0 8px 40px rgba(27,108,168,0.35) !important;
+    outline: 2.5px solid #1B6CA8;
+  }
+  .thumb-active .thumb-bar {
+    background: linear-gradient(135deg, #1B6CA8, #2E8BC0) !important;
+  }
+</style>
 
 
 <!-- ═══════════════════════════════════════════
@@ -996,6 +1107,34 @@ import '../styles/global.css';
     { threshold: 0.5 }
   );
   document.querySelectorAll<HTMLElement>('.counter').forEach(el => statObserver.observe(el));
+
+  // ── Hero image switcher
+  const heroPanels = document.querySelectorAll<HTMLElement>('.hero-panel');
+  const heroThumbs = document.querySelectorAll<HTMLButtonElement>('.hero-thumb');
+  const heroLocationEl = document.getElementById('hero-active-location');
+  const heroSublabelEl = document.getElementById('hero-active-sublabel');
+
+  heroThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const targetIdx = Number(thumb.dataset.panel);
+
+      // Swap panels
+      heroPanels.forEach((panel, i) => {
+        const isActive = i === targetIdx;
+        panel.classList.toggle('active', isActive);
+        panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      });
+
+      // Swap active thumbnail
+      heroThumbs.forEach(t => t.classList.remove('thumb-active'));
+      thumb.classList.add('thumb-active');
+
+      // Update location bar text
+      const activePanel = heroPanels[targetIdx];
+      if (heroLocationEl) heroLocationEl.textContent = activePanel.dataset.location ?? '';
+      if (heroSublabelEl) heroSublabelEl.textContent = activePanel.dataset.sublabel ?? '';
+    });
+  });
 
   // ── Heart toggle
   document.querySelectorAll<HTMLButtonElement>('.heart-icon').forEach(btn => {
