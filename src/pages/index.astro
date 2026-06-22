@@ -183,14 +183,7 @@ import '../styles/global.css';
       data-sublabel="UMHLANGA RIDGE, DURBAN"
       aria-hidden="false"
     >
-      <!--
-        REPLACE BELOW with:
-        <img src="/images/umhlanga-ridge.jpg" alt="Umhlanga Ridge property" class="hero-img-real" />
-      -->
-      <div class="hero-img-placeholder" style="background:linear-gradient(160deg,#1B6CA8 0%,#2E8BC0 40%,#D6EAF8 100%);">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto 16px;opacity:0.35;"><rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="white" opacity="0.6"/><path d="M8 32 L20 20 L30 30 L40 22 L56 36" stroke="white" stroke-width="2" fill="none"/></svg>
-        <p class="hero-panel-label">[Umhlanga Ridge Property]</p>
-      </div>
+      <img src="/images/umhlanga-ridge.jpg" alt="Coastal apartment living room with Indian Ocean view — Umhlanga Ridge" class="hero-img-real" loading="eager" />
     </div>
 
     <!-- Image panel 1 — La Lucia Beachfront -->
@@ -201,14 +194,7 @@ import '../styles/global.css';
       data-sublabel="LA LUCIA, DURBAN NORTH"
       aria-hidden="true"
     >
-      <!--
-        REPLACE BELOW with:
-        <img src="/images/la-lucia-beachfront.jpg" alt="La Lucia Beachfront Villa" class="hero-img-real" />
-      -->
-      <div class="hero-img-placeholder" style="background:linear-gradient(160deg,#0d4a7a 0%,#1B6CA8 35%,#2E8BC0 70%,#aac9e3 100%);">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto 16px;opacity:0.35;"><rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="white" opacity="0.6"/><path d="M8 38 Q20 24 32 32 Q44 40 56 26" stroke="white" stroke-width="2" fill="none"/></svg>
-        <p class="hero-panel-label">[La Lucia Beachfront Villa]</p>
-      </div>
+      <img src="/images/la-lucia-beachfront.jpg" alt="Luxury beachfront villa with pool and tropical garden — La Lucia" class="hero-img-real" loading="lazy" />
     </div>
 
     <!-- Image panel 2 — Umhlanga Rocks -->
@@ -219,14 +205,7 @@ import '../styles/global.css';
       data-sublabel="UMHLANGA ROCKS, DURBAN"
       aria-hidden="true"
     >
-      <!--
-        REPLACE BELOW with:
-        <img src="/images/umhlanga-rocks.jpg" alt="Umhlanga Rocks apartment" class="hero-img-real" />
-      -->
-      <div class="hero-img-placeholder" style="background:linear-gradient(160deg,#2E8BC0 0%,#5BA3CC 40%,#D6EAF8 100%);">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto 16px;opacity:0.35;"><rect x="8" y="8" width="48" height="36" rx="4" fill="none" stroke="white" stroke-width="2"/><circle cx="44" cy="20" r="5" fill="white" opacity="0.6"/><path d="M8 36 L18 28 L28 34 L40 22 L56 30" stroke="white" stroke-width="2" fill="none"/></svg>
-        <p class="hero-panel-label">[Umhlanga Rocks Apartment]</p>
-      </div>
+      <img src="/images/umhlanga-rocks.jpg" alt="Luxury open-plan interior with sunset ocean view — Umhlanga Rocks" class="hero-img-real" loading="lazy" />
     </div>
 
     <!-- Location label overlay (bottom of image) -->
@@ -285,7 +264,7 @@ import '../styles/global.css';
     justify-content: center;
     padding: 40px;
   }
-  /* When you add real images, they fill the panel */
+  /* Real photos fill the panel */
   .hero-img-real {
     position: absolute;
     inset: 0;
@@ -293,6 +272,19 @@ import '../styles/global.css';
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+  /* Subtle vignette so text overlays stay readable */
+  .hero-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08) 0%,
+      transparent 40%,
+      rgba(10,25,45,0.45) 100%
+    );
+    pointer-events: none;
   }
   .hero-panel-label {
     font-family: 'DM Serif Display', serif;
@@ -562,22 +554,18 @@ import '../styles/global.css';
   <!-- Gold divider -->
   <div style="width:4px;background:linear-gradient(to bottom,transparent,#C9A84C,#C9A84C,transparent);flex-shrink:0;position:relative;z-index:2;"></div>
 
-  <!-- Right: Image -->
-  <div style="width:50%;background:linear-gradient(135deg,#D6EAF8 0%,#EEF4FB 40%,#F7F9FC 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#aac9e3 0%,#D6EAF8 40%,#f0f7fc 100%);"></div>
-    <!-- Decorative circles simulating aerial view -->
-    <div style="position:absolute;top:20%;left:30%;width:200px;height:200px;border-radius:50%;background:rgba(27,108,168,0.08);"></div>
-    <div style="position:absolute;top:40%;left:20%;width:140px;height:140px;border-radius:50%;background:rgba(27,108,168,0.06);"></div>
-    <div style="position:absolute;bottom:25%;right:25%;width:300px;height:300px;border-radius:50%;background:rgba(27,108,168,0.05);"></div>
-    <div style="position:relative;z-index:1;text-align:center;padding:48px;">
-      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 20px;opacity:0.35;">
-        <rect x="10" y="10" width="60" height="45" rx="4" fill="none" stroke="#1B6CA8" stroke-width="2"/>
-        <circle cx="28" cy="25" r="7" fill="#1B6CA8" opacity="0.4"/>
-        <path d="M10 40 L25 28 L38 38 L52 26 L70 42" stroke="#1B6CA8" stroke-width="2" fill="none"/>
-        <path d="M10 60 Q25 52 40 56 Q55 60 70 55" stroke="#1B6CA8" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
-      </svg>
-      <p style="font-family:'DM Serif Display',serif;font-size:24px;font-style:italic;color:#1B6CA8;margin-bottom:12px;">[Aerial Umhlanga Coastline]</p>
-      <p style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.15em;color:#6B7C93;text-transform:uppercase;">The KZN North Coast</p>
+  <!-- Right: Aerial image -->
+  <div style="width:50%;position:relative;overflow:hidden;">
+    <img
+      src="/images/umhlanga-aerial.jpg"
+      alt="Aerial view of Umhlanga coastline and lighthouse, KwaZulu-Natal"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"
+      loading="lazy"
+    />
+    <!-- Subtle dark gradient at bottom for legibility -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,rgba(10,25,45,0.55),transparent);pointer-events:none;z-index:1;"></div>
+    <div style="position:absolute;bottom:32px;left:40px;z-index:2;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;color:rgba(255,255,255,0.75);text-transform:uppercase;">The KZN North Coast</p>
     </div>
   </div>
 </section>
